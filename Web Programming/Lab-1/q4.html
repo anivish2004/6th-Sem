@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Billing Page</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    select, input[type="text"], button {
+      margin-bottom: 15px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Billing System</h2>
+
+  <!-- Dropdown -->
+  <label for="brand">Select Brand:</label>
+  <select id="brand">
+    <option value="HP">HP</option>
+    <option value="Nokia">Nokia</option>
+    <option value="Samsung">Samsung</option>
+    <option value="Motorola">Motorola</option>
+    <option value="Apple">Apple</option>
+  </select>
+
+  <!-- Checkboxes -->
+  <label>Select Product Type:</label>
+  <input type="checkbox" id="mobile" value="Mobile"> Mobile
+  <input type="checkbox" id="laptop" value="Laptop"> Laptop
+
+  <!-- Quantity -->
+  <label for="qty">Enter Quantity:</label>
+  <input type="text" id="qty" placeholder="Enter number">
+
+  <!-- Button -->
+  <br>
+  <button id="billBtn">Produce Bill</button>
+
+  <script>
+    $(document).ready(function(){
+      // Sample price list
+      let prices = {
+        "HP": { "Mobile": 10000, "Laptop": 40000 },
+        "Nokia": { "Mobile": 8000, "Laptop": 35000 },
+        "Samsung": { "Mobile": 12000, "Laptop": 45000 },
+        "Motorola": { "Mobile": 9000, "Laptop": 30000 },
+        "Apple": { "Mobile": 60000, "Laptop": 90000 }
+      };
+
+      $("#billBtn").click(function(){
+        let brand = $("#brand").val();
+        let qty = parseInt($("#qty").val());
+        let total = 0;
+
+        if(isNaN(qty) || qty <= 0){
+          alert("Please enter a valid quantity.");
+          return;
+        }
+
+        // Check selected product types
+        if($("#mobile").is(":checked")){
+          total += prices[brand]["Mobile"] * qty;
+        }
+        if($("#laptop").is(":checked")){
+          total += prices[brand]["Laptop"] * qty;
+        }
+
+        if(total === 0){
+          alert("Please select at least one product type.");
+        } else {
+          alert("Total Amount: ₹" + total);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
