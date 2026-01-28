@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Layout Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Animated gradient background */
+    body {
+      background: linear-gradient(-45deg, #74ebd5, #9face6, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Section styling */
+    .section {
+      padding: 20px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .top-section {
+      margin-bottom: 20px;
+    }
+
+    .bottom-section {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap; /* responsive */
+    }
+
+    .bottom-part {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    h3, h5 {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="container mt-4">
+
+  <!-- Top Section -->
+  <div class="section top-section">
+    <h3 class="text-primary text-center mb-3">Top Section</h3>
+    <!-- Input Group -->
+    <div class="input-group mb-3">
+      <span class="input-group-text">Name</span>
+      <input type="text" class="form-control" placeholder="Enter your name">
+    </div>
+    <!-- Badge -->
+    <p>Notifications: <span class="badge bg-danger">5</span></p>
+    <!-- Button -->
+    <button class="btn btn-success">Submit</button>
+  </div>
+
+  <!-- Bottom Section -->
+  <div class="bottom-section">
+    <!-- Bottom Part 1 -->
+    <div class="section bottom-part">
+      <h5 class="text-info">Bottom Part 1</h5>
+      <input type="email" class="form-control mb-3" placeholder="Enter email">
+      <p>Status: <span class="badge bg-warning text-dark">Pending</span></p>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-primary">Yes</button>
+        <button type="button" class="btn btn-outline-secondary">No</button>
+      </div>
+    </div>
+
+    <!-- Bottom Part 2 -->
+    <div class="section bottom-part">
+      <h5 class="text-success">Bottom Part 2</h5>
+      <div class="input-group mb-3">
+        <span class="input-group-text">@</span>
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
+      <p>Messages: <span class="badge bg-primary">12</span></p>
+      <button class="btn btn-outline-danger">Delete</button>
+      <button class="btn btn-outline-success">Save</button>
+    </div>
+
+    <!-- Bottom Part 3 -->
+    <div class="section bottom-part">
+      <h5 class="text-danger">Bottom Part 3</h5>
+      <input type="password" class="form-control mb-3" placeholder="Enter password">
+      <p>Attempts: <span class="badge bg-secondary">3</span></p>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-dark">Option 1</button>
+        <button type="button" class="btn btn-dark">Option 2</button>
+        <button type="button" class="btn btn-dark">Option 3</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
